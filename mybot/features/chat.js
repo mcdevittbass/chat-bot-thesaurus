@@ -8,6 +8,10 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.listen(port, () => {
+    console.log(`Server is listening on port: ${port}`);
+})
+
 module.exports = function(controller) {
 
     // make public/index.html available as localhost/index.html

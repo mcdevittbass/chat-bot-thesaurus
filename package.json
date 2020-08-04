@@ -1,8 +1,0 @@
-{
-  "name": "ChatBot",
-  "version": "1.0.0",
-  "description": "MintBean Project",
-  "main": "index.js",
-  "author": "Megan McDevitt",
-  "license": "MIT"
-}
