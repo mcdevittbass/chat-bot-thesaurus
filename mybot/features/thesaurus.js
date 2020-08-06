@@ -11,14 +11,19 @@ module.exports = function(controller) {
     const callThesaurus = async (uri, i, word) => {
         const response = await fetch(uri).catch(err => new Error("Problem getting results: " + err));
         const data = await response.json().catch(err => new Error("Problem parsing results: " + err));
-        if(data[i]) {
-            if(!data[i].meta) {
-            return `Can't find that word. Did you mean: ${data.join(', ')}?`
+        console.log(data);
+        if(data.length > 0) {
+            if(data[i]) {
+                if(data[i].meta) {
+                    return `Here are some synonymns for ${word}: ${data[i].meta.syns[0].join(', ')}`;
+                } else {
+                    return `Can't find that word. Did you mean: ${data.join(', ')}?`
+                }
             } else {
-                return `Here are some synonymns for ${word}: ${data[i].meta.syns[0].join(', ')}`;
+                return 'NO MORE!'
             }
         } else {
-            return 'NO MORE!'
+            return "I couldn't find that word. Can you try again?"
         }
     }
     controller.on('message,direct_message', async (bot, message) => {
@@ -28,7 +33,7 @@ module.exports = function(controller) {
         const synonyms = await callThesaurus(endpoint, 0, word).catch(err => new Error("Couldn't find that word! Try another one."));
         await bot.reply(message, synonyms);
         if(synonyms.includes('Here are some')) {
-            await bot.reply(message, "If you want more synonmns, type 'more please'");
+            await bot.reply(message, "If you want more synonymns, type 'more please'");
         }
     });
 

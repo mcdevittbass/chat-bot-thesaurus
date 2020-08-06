@@ -9,8 +9,9 @@ module.exports = function(controller) {
     //     await bot.reply(message, 'I heard a sample message.');
     // });
 
-    // controller.on('message,direct_message', async(bot, message) => {
-    //     await bot.reply(message, `Echo: ${ message.text }`);
-    // });
+    controller.on(['hello', 'welcome_back'] , async(bot) => {
+        console.log("user joined!")
+        await bot.say("Welcome! I am a Thesaurus Bot. Send me a word and I will send you synonyms for it!");
+    });
 
 }
