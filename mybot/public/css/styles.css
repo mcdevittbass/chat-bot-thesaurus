@@ -9,6 +9,8 @@ html {
   padding: 0;
   font-size: 18px;
   background-color: #000;
+  background-image: url("/img/magnetic-poetry.jpg");
+  background-size: cover;
   font-family: "helvetica", sans-serif;
 }
 
@@ -127,11 +129,13 @@ a.button:hover {
   /*height: 500px;
   width: 320px;*/
   height: 100%;
-  width: 100%;
+  width: 50%;
   /*margin: 2rem auto;*/
   display: flex;
   flex-direction: column;
   font-family: "helvetica", sans-serif;
+  position: relative;
+  margin: auto;
 }
 #message_window .disconnected {
   background: #FFFFCC;
@@ -155,15 +159,14 @@ a.button:hover {
 #message_window .powered_by {
   flex-shrink: 0;
   text-align: center;
-  border-bottom: 1px solid #CCC;
-  font-size: 14px;
+  /*border: 1px solid #666;*/
+  border: none;
+  font-size: 50px;
   padding: 0.25rem;
-  color: #666;
+  color: #DDD;
+  background-color: #70587C;
 }
-#message_window .powered_by a {
-  text-decoration: none;
-  color: #666;
-}
+
 #message_window .powered_by img {
   position: relative;
   top: 2px;
@@ -247,7 +250,7 @@ a.button:hover {
 }
 #message_window .message.outgoing {
   float: right;
-  background: #a795ef;
+  background: #690375;
   color: white;
 }
 #message_window #message_replies {

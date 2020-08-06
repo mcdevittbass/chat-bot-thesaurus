@@ -20,7 +20,7 @@ module.exports = function(controller) {
                     return `Can't find that word. Did you mean: ${data.join(', ')}?`
                 }
             } else {
-                return 'NO MORE!'
+                return 'NO MORE! That is all the synonymns I have.'
             }
         } else {
             return "I couldn't find that word. Can you try again?"
