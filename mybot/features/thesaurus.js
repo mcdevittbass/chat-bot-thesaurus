@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const key = config.mwAPIKey;
+const key = require('../public/config');
 const url = "https://www.dictionaryapi.com/api/v3/references/thesaurus/json/"
 
 //endpoint = url + word + ? + key
