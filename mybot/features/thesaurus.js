@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const key = require('../public/config');
+const key = "key=e569694b-2440-4b3a-a5e2-b5d8fd6f1ca7";
 const url = "https://www.dictionaryapi.com/api/v3/references/thesaurus/json/"
 
 //endpoint = url + word + ? + key
