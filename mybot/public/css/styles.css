@@ -122,14 +122,24 @@ a.button:hover {
 }
 
 /* chat client */
+@media screen and (max-device-width: 768px) {
+  #message_window {
+    height: 100%;
+    width: 100%;
+  }
+} 
+@media screen and (min-device-width: 769px) {
+  #message_window {
+    height: 100%;
+    width: 50%;
+  }
+} 
 #message_window {
   background: #FFFFFF;
   border-left: 1px solid #CCC;
   border-right: 1px solid #CCC;
   /*height: 500px;
   width: 320px;*/
-  height: 100%;
-  width: 50%;
   /*margin: 2rem auto;*/
   display: flex;
   flex-direction: column;
