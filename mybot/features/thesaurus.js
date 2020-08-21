@@ -11,7 +11,6 @@ module.exports = function(controller) {
     const callThesaurus = async (uri, i, word) => {
         const response = await fetch(uri).catch(err => new Error("Problem getting results: " + err));
         const data = await response.json().catch(err => new Error("Problem parsing results: " + err));
-        console.log(data);
         if(data.length > 0) {
             if(data[i]) {
                 if(data[i].meta) {
@@ -30,7 +29,7 @@ module.exports = function(controller) {
         const word = await message.text;
         wordArr.push(word);
         const endpoint = url + word + '?' + key;
-        const synonyms = await callThesaurus(endpoint, 0, word).catch(err => new Error("Couldn't find that word! Try another one."));
+        const synonyms = await callThesaurus(endpoint, 0, word).catch(err => err = new Error("Couldn't find that word! Try another one."));
         await bot.reply(message, synonyms);
         if(synonyms.includes('Here are some')) {
             await bot.reply(message, "If you want more synonymns, type 'more please'");
@@ -41,9 +40,9 @@ module.exports = function(controller) {
         let word = wordArr[wordArr.length - 1];
         console.log(word);
         const endpoint = url + word + '?' + key;
-        const synonyms = await callThesaurus(endpoint, x, word).catch(err => new Error("Couldn't find that word! Try another one."));
+        const synonyms = await callThesaurus(endpoint, x, word).catch(err => err = new Error("Couldn't find that word! Try another one."));
         await bot.reply(message, synonyms);
-        if(synonyms !== 'NO MORE!') {
+        if(synonyms !== 'NO MORE! That is all the synonymns I have.') {
             await bot.reply(message, "If you want more synonmns, type 'more please'");
         }
         x += 1;
